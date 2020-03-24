@@ -40,11 +40,18 @@ const scrape = async () => {
     }
     console.log('Fim da lista de cards');
     console.log('========================================');
-    const totalPrice = await page.evaluate(() => {
-        return document.querySelector(".blocoCarrinho").innerHTML
+    await page.goto("https://www.bazardebagda.com.br/?view=ecom/carrinho")
+    // await page.click('input[name="btMeuCarrinho"]')
+    console.log("page.url(): ")
+    console.log(page.url())
+    await page.screenshot({path: 'screenshot.png', fullPage: true});
+    const totalValue = await page.evaluate(() => {
+        return document.querySelector('div#precoTotal b').innerHTML
+        // return document.querySelector('input[name="btMeuCarrinho"]').innerHTML
+        // return document.querySelector(".blocoCarrinho").innerHTML
         // return document.querySelector("div#showItens").innerHTML
     })
-    result.totalPrice = totalPrice
+    result.totalValue = totalValue
     browser.close()
     return result
 }
