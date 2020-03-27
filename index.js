@@ -19,7 +19,11 @@ const scrape = async () => {
             document.querySelector(config.querySelectors.searchInput).value = card
         }, {card, config})
         await page.click(config.querySelectors.searchButton)
-        await page.screenshot({path: 'screenshot.png', fullPage: true});
+        try {
+            await page.screenshot({path: 'screenshot.png', fullPage: true});
+        } catch (error) {
+            console.error(error)
+        }
         try {
             await page.click(config.querySelectors.purchaseButton)
         } catch (error) {
