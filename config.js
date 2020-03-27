@@ -17,5 +17,15 @@ module.exports = {
             cartItens: "div.carrinhoMenu",
             totalValue: "div#precoTotal b"
         }
+    },
+    chq: {
+        url: "https://www.chq.com.br/",
+        querySelectors: {
+            searchInput: "input#fSearch",
+            searchButton: '[title="Buscar"]',
+            purchaseButton: '[value="Comprar"]',
+            // cartItens: "div.showItens tbody",
+            totalValue: "div#precoTotal b"
+        }
     }
 }

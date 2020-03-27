@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
 const cards = require('./cards')
-const {bazarDeBagda: config} = require('./config')
+const {chq: config} = require('./config')
 
 const scrape = async () => {
     const browser = await puppeteer.launch()
